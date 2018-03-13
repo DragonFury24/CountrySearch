@@ -18,9 +18,6 @@ public class CountrySearchMain {
         }
 
 //        Scanner            keyType     = new Scanner(System.in);
-        int                option;
-        String             searchValue = "";
-        Country            result;
         ArrayDeque<String> input       = readFile(new File("src/SampleInput.txt"));
 
         while (!input.isEmpty()) {
@@ -28,6 +25,11 @@ public class CountrySearchMain {
 //            option = NumberInput.noNegIntInput(keyType);
 //            keyType.nextLine();
 //            System.out.println("Search value");
+
+            int                option;
+            String             searchValue = "";
+            Country            result;
+
             if (input.size() != 1) {
                 option = Integer.parseInt(input.pop());
                 searchValue = input.pop();
