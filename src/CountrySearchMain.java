@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 
-public class ArrayListInsertionSortMain {
+public class CountrySearchMain {
     public static void main(String[] args) {
         ArrayList<Country> countries   = new ArrayList<>();
         String             filePath    = new File("src").exists() ? "src/CountryData.txt" : "CountryData.txt";
