@@ -25,6 +25,26 @@ public class Search {
         return byName(searchValue, countryList, startIndex, mid - 1);
     }
 
+
+    /**
+     * Performs a linear search for all Country whose name contains the searchValue
+     *
+     * @param searchValue Country name being searched for
+     * @param countryList List of Country
+     * @return A list of Country whose names contain searchValue
+     */
+    public static ArrayList<Country> byNameContaining(String searchValue, ArrayList<Country> countryList) {
+        ArrayList<Country> matching = new ArrayList<>();
+
+        for (Country country : countryList) {
+            if (country.getName().contains(searchValue)) {
+                matching.add(country);
+            }
+        }
+
+        return matching;
+    }
+
     /**
      * Performs a binary search on a list of Country using the capital
      *
