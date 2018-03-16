@@ -32,6 +32,7 @@ public class Country implements Comparable {
 
     /**
      * Compares this object to another object
+     *
      * @param obj Object being compared to; is a country
      * @return a negative, positive, or zero number if obj is greater than, less than, or equal to this Country
      */

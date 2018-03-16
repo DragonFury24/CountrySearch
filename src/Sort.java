@@ -42,9 +42,10 @@ public class Sort {
 
     /**
      * Swaps 2 elements in a list
-     * @param list List of objects
+     *
+     * @param list      List of objects
      * @param fromIndex First index to be swapped; valid index in list
-     * @param toIndex Second index to be swapped; valid index in list
+     * @param toIndex   Second index to be swapped; valid index in list
      */
     public static void shiftIndex(ArrayList list, int fromIndex, int toIndex) {
         Object temp = list.get(fromIndex);

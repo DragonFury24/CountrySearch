@@ -41,6 +41,7 @@ public class Inputs {
     public boolean isEmpty() {
         return countryInfo.size() == 0;
     }
+
     private void chooseInputType() {
         boolean validInput = false;
 
@@ -53,8 +54,7 @@ public class Inputs {
                 isUsingKeyboard = true;
             else if (isNo(input)) {
                 isUsingKeyboard = false;
-            }
-            else
+            } else
                 validInput = false;
         }
     }
@@ -71,19 +71,20 @@ public class Inputs {
 
     /**
      * Parses text file
+     *
      * @param file Text file
      * @return Queue of elements in file
      */
     private static ArrayDeque<String> readFile(File file) {
-        String             tempInput;
         ArrayDeque<String> countryInfo = new ArrayDeque<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String tempInput;
             while ((tempInput = br.readLine()) != null) {
                 countryInfo.add(tempInput);
             }
         } catch (IOException io) {
-            io.printStackTrace();
+            System.out.println("File does not exist!");
         }
 
         return countryInfo;
