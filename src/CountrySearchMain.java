@@ -17,45 +17,50 @@ public class CountrySearchMain {
             }
         }
 
-//        Scanner            keyType     = new Scanner(System.in);
-        ArrayDeque<String> input       = readFile(new File("src/SampleInput.txt"));
+        searchCountries(countries, new Inputs());
+    }
 
-        while (!input.isEmpty()) {
-//            printOptions();
-//            option = NumberInput.noNegIntInput(keyType);
-//            keyType.nextLine();
-//            System.out.println("Search value");
-
+    private static void searchCountries(ArrayList<Country> countryList, Inputs inputs) {
+        while (inputs.isUsingKeyboard() || !inputs.isEmpty()) {
             int                option;
-            String             searchValue = "";
+            String             searchValue;
             Country            result;
 
-            if (input.size() != 1) {
-                option = Integer.parseInt(input.pop());
-                searchValue = input.pop();
-                System.out.println("Search value: " + searchValue);
-            } else
-                option = Integer.parseInt(input.pop());
+            if (inputs.isUsingKeyboard()) {
+                printOptions();
+            }
+
+            option = Integer.parseInt(inputs.next());
+
+            if (inputs.isUsingKeyboard())
+                System.out.println("Input search value:");
+
+            searchValue = inputs.next();
+
+            if (!searchValue.equals("3")) {
+                System.out.println("Search value:");
+                System.out.println(searchValue);
+            }
 
             switch (option) {
                 case 1: //Search by country name
-                    Sort.byName(countries);
+                    Sort.byName(countryList);
                     System.out.println("Searching by country name.");
-                    result = Search.byName(searchValue, countries, 0, countries.size());
+                    result = Search.byName(searchValue, countryList, 0, countryList.size());
                     System.out.println(result != null ? result : searchValue + " not found!");
                     break;
                 case 2: //Search by country capital
-                    Sort.byCapital(countries);
+                    Sort.byCapital(countryList);
                     System.out.println("Searching by capital.");
-                    result = Search.byCapital(searchValue, countries, 0, countries.size());
+                    result = Search.byCapital(searchValue, countryList, 0, countryList.size());
                     System.out.println(result != null ? result : searchValue + " not found!");
                     break;
                 case 3: //Exit program
-                    break;
+                    return;
                 case 4: //Search by population
-                    Sort.byPopulation(countries);
+                    Sort.byPopulation(countryList);
                     System.out.println("Searching by population.");
-                    System.out.println(Search.byPopulation(Integer.parseInt(searchValue), countries));
+                    System.out.println(Search.byPopulation(Integer.parseInt(searchValue), countryList));
                     break;
                 default:
                     break;
@@ -64,13 +69,12 @@ public class CountrySearchMain {
             System.out.println();
         }
     }
-
     /**
      * Parses text file
      * @param file Text file
      * @return Queue of elements in file
      */
-    public static ArrayDeque<String> readFile(File file) {
+    private static ArrayDeque<String> readFile(File file) {
         String             tempInput;
         ArrayDeque<String> countryInfo = new ArrayDeque<>();
 
@@ -100,7 +104,7 @@ public class CountrySearchMain {
      * @param list List of Country name, capital, and populations
      * @return true - list is formatted correctly; false - list is formatted incorrectly, output location in list of error
      */
-    public static boolean testList(String[] list) {
+    private static boolean testList(String[] list) {
         for (int i = 2; i < list.length; i += 3) {
             try {
                 Integer.parseInt(list[i]);
