@@ -22,9 +22,9 @@ public class CountrySearchMain {
 
     private static void searchCountries(ArrayList<Country> countryList, Inputs inputs) {
         while (inputs.isUsingKeyboard() || !inputs.isEmpty()) {
-            int                option;
-            String             searchValue;
-            Country            result;
+            int     option;
+            String  searchValue;
+            Country result;
 
             if (inputs.isUsingKeyboard()) {
                 printOptions();
@@ -69,8 +69,10 @@ public class CountrySearchMain {
             System.out.println();
         }
     }
+
     /**
      * Parses text file
+     *
      * @param file Text file
      * @return Queue of elements in file
      */
@@ -101,6 +103,7 @@ public class CountrySearchMain {
 
     /**
      * Checks if list is formatted with Country name, capital, and population in respective order
+     *
      * @param list List of Country name, capital, and populations
      * @return true - list is formatted correctly; false - list is formatted incorrectly, output location in list of error
      */
