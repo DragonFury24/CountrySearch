@@ -32,15 +32,16 @@ public class CountrySearchMain {
 
             option = Integer.parseInt(inputs.next());
 
+            if (option == 3) //exit program
+                return;
+
             if (inputs.isUsingKeyboard())
                 System.out.println("Input search value:");
 
             searchValue = inputs.next();
+            System.out.println("Search value:");
+            System.out.println(searchValue);
 
-            if (!searchValue.equals("3")) {
-                System.out.println("Search value:");
-                System.out.println(searchValue);
-            }
 
             switch (option) {
                 case 1: //Search by country name
@@ -55,8 +56,6 @@ public class CountrySearchMain {
                     result = Search.byCapital(searchValue, countryList, 0, countryList.size());
                     System.out.println(result != null ? result : searchValue + " not found!");
                     break;
-                case 3: //Exit program
-                    return;
                 case 4: //Search by population
                     Sort.byPopulation(countryList);
                     System.out.println("Searching by population.");

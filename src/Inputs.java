@@ -39,7 +39,7 @@ public class Inputs {
     }
 
     public boolean isEmpty() {
-        return countryInfo.size() == 0;
+        return countryInfo == null || countryInfo.size() == 0;
     }
 
     private void chooseInputType() {
