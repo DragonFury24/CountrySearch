@@ -3,9 +3,9 @@ import java.util.ArrayDeque;
 import java.util.Scanner;
 
 public class Inputs {
-    Scanner keyType = new Scanner(System.in);
+    private Scanner keyType = new Scanner(System.in);
 
-    ArrayDeque<String> countryInfo;
+    private ArrayDeque<String> countryInfo;
 
     private boolean isUsingKeyboard;
 
