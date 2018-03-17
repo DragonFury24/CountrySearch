@@ -19,7 +19,7 @@ public class Inputs {
             filePath = new File("src//").exists() ? "src//" + filePath :
                        filePath;
 
-            countryInfo = readFile(new File(filePath));
+            countryInfo = FileUtils.readFile(new File(filePath));
         }
     }
 
@@ -68,26 +68,4 @@ public class Inputs {
         return option.equalsIgnoreCase("n") ||
                option.equalsIgnoreCase("no");
     }
-
-    /**
-     * Parses text file
-     *
-     * @param file Text file
-     * @return Queue of elements in file
-     */
-    private static ArrayDeque<String> readFile(File file) {
-        ArrayDeque<String> countryInfo = new ArrayDeque<>();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String tempInput;
-            while ((tempInput = br.readLine()) != null) {
-                countryInfo.add(tempInput);
-            }
-        } catch (IOException io) {
-            System.out.println("File does not exist!");
-        }
-
-        return countryInfo;
-    }
-
 }

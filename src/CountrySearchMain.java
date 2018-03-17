@@ -9,7 +9,7 @@ public class CountrySearchMain {
     public static void main(String[] args) {
         ArrayList<Country> countries   = new ArrayList<>();
         String             filePath    = new File("src").exists() ? "src/CountryData.txt" : "CountryData.txt";
-        ArrayDeque<String> countryInfo = readFile(new File(filePath));
+        ArrayDeque<String> countryInfo = FileUtils.readFile(new File(filePath));
 
         if (testList(countryInfo.toArray(new String[countryInfo.size()]))) {
             while (!countryInfo.isEmpty()) {
@@ -67,27 +67,6 @@ public class CountrySearchMain {
 
             System.out.println();
         }
-    }
-
-    /**
-     * Parses text file
-     *
-     * @param file Text file
-     * @return Queue of elements in file
-     */
-    private static ArrayDeque<String> readFile(File file) {
-        String             tempInput;
-        ArrayDeque<String> countryInfo = new ArrayDeque<>();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            while ((tempInput = br.readLine()) != null) {
-                countryInfo.add(tempInput);
-            }
-        } catch (IOException io) {
-            io.printStackTrace();
-        }
-
-        return countryInfo;
     }
 
     /**
