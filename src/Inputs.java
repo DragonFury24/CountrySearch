@@ -10,17 +10,20 @@ public class Inputs {
     private boolean isUsingKeyboard;
 
     public Inputs() {
-        chooseInputType();
+//        chooseInputType();
+//
+//        if (isUsingKeyboard == false) {
+//            System.out.println("Name of file to read:");
+//
+//            String filePath = keyType.nextLine();
+//            filePath = new File("src//").exists() ? "src//" + filePath :
+//                       filePath;
+//
+//            countryInfo = FileUtils.readFile(new File(filePath));
+//        }
 
-        if (isUsingKeyboard == false) {
-            System.out.println("Name of file to read:");
-
-            String filePath = keyType.nextLine();
-            filePath = new File("src//").exists() ? "src//" + filePath :
-                       filePath;
-
-            countryInfo = FileUtils.readFile(new File(filePath));
-        }
+        isUsingKeyboard = false;
+        countryInfo = FileUtils.readFile(new File(new File("src").exists() ? "src/Real.txt" : "Real.txt"));
     }
 
     public String next() {
@@ -61,11 +64,11 @@ public class Inputs {
 
     private boolean isYes(String option) {
         return option.equalsIgnoreCase("y") ||
-               option.equalsIgnoreCase("yes");
+                option.equalsIgnoreCase("yes");
     }
 
     private boolean isNo(String option) {
         return option.equalsIgnoreCase("n") ||
-               option.equalsIgnoreCase("no");
+                option.equalsIgnoreCase("no");
     }
 }

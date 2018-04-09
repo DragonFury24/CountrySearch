@@ -14,6 +14,9 @@ public class CountrySearchMain {
             }
         }
 
+        Sort.byPopulation(countries);
+        countries.forEach(System.out::println);
+
         searchCountries(countries, new Inputs());
     }
 
